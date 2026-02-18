@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- LEDGER LIST VIEW -->
+    <record id="view_housing_ledger_list" model="ir.ui.view">
+        <field name="name">housing.ledger.list</field>
+        <field name="model">housing.ledger</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="date"/>
+                <field name="member_id"/>
+                <field name="description"/>
+                <field name="debit"/>
+                <field name="credit"/>
+                <field name="balance"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- LEDGER ACTION -->
+    <record id="action_housing_ledger" model="ir.actions.act_window">
+        <field name="name">Member Ledger</field>
+        <field name="res_model">housing.ledger</field>
+        <field name="view_mode">list</field>
+    </record>
+
+</odoo>

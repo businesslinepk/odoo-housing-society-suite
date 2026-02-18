@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_plot_allotment_letter" model="ir.actions.report">
+        <field name="name">Plot Allotment Letter</field>
+        <field name="model">housing.plot.allotment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">housing_society_base.plot_allotment_letter</field>
+        <field name="print_report_name">'Plot Allotment - %s' % (object.member_id.name)</field>
+    </record>
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_plot_allotment_letter_view" model="ir.actions.act_window">
+        <field name="name">Plot Allotment Letter</field>
+        <field name="res_model">housing.member</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_plot_allotment_letter_form"/>
+        <field name="target">current</field>
+    </record>
+
+</odoo>

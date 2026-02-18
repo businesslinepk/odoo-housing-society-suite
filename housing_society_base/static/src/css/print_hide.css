@@ -1,0 +1,16 @@
+@media print {
+
+    /* Hide Odoo breadcrumb & top bar */
+    .o_control_panel,
+    .breadcrumb,
+    .o_breadcrumb,
+    .o_main_navbar {
+        display: none !important;
+    }
+
+    /* Remove extra top spacing after hiding */
+    .o_content {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}

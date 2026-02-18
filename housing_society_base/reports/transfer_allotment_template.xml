@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="transfer_allotment_template">
+
+        <t t-name="housing_society_base.transfer_allotment_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="o">
+
+     <div style="font-size:20px; line-height:1.15;">
+
+                            <!-- HEADER -->
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                            
+                                <div style="text-align:right; font-size:15px;">
+                                    <strong>Date:</strong>
+                                    <span t-esc="o.transfer_date"/>
+                                </div>
+                            </div>
+
+                            <hr style="margin:5px 0;"/>
+
+                            <!-- TITLE -->
+     <div style="text-align:center; margin-bottom:6px;">
+
+     <h3 style="text-align:center; margin-bottom:35px; color:#000000;">
+        TRANSFER ALLOTMENT OF
+        <strong>
+            <t t-if="o.plot_id.plot_type == 'residential'">
+                RESIDENTIAL
+            </t>
+            <t t-if="o.plot_id.plot_type == 'commercial'">
+                COMMERCIAL
+            </t>
+        </strong>
+        PLOT
+     </h3>
+
+    
+
+     </div>
+
+
+                            <hr style="margin:5px 0;"/>
+
+                            <!-- TRANSFEREE INFO -->
+                            <h4 style="margin:4px 0;">TRANSFEREE INFORMATION</h4>
+                            <table class="table table-sm">
+                                <tr>
+                                    <td><strong>Name</strong></td>
+                                    <td><span t-esc="o.to_member_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CNIC</strong></td>
+                                    <td><span t-esc="o.to_member_id.cnic"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Phone</strong></td>
+                                    <td><span t-esc="o.to_member_id.phone"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Address</strong></td>
+                                    <td><span t-esc="o.to_member_id.address"/></td>
+                                </tr>
+                            </table>
+
+     <hr style="margin:5px 0;"/>
+
+                            <h4>TRANSFER DETAILS</h4>
+     <table class="table table-sm">
+     <tr>
+        <td><strong>Previous Allottee</strong></td>
+        <td>
+           
+            (<span t-esc="o.from_member_id.membership_no"/>)
+        </td>
+     </tr>
+     <tr>
+        <td><strong>Transferred To</strong></td>
+        <td>
+            
+            (<span t-esc="o.to_member_id.membership_no"/>)
+        </td>
+     </tr>
+     <tr>
+        <td><strong>Transfer Date</strong></td>
+        <td>
+            <span t-esc="o.transfer_date"/>
+        </td>
+     </tr>
+     </table>
+
+     <hr/>
+
+
+                            <!-- PLOT DETAILS -->
+                            <h4 style="margin:4px 0;">PLOT DETAILS</h4>
+                            <table class="table table-sm">
+                                <tr>
+                                    <td><strong>Plot</strong></td>
+                                    <td><span t-esc="o.plot_id.display_name"/></td>
+                                </tr>
+                                <tr>
+                                  <td><strong>Block</strong></td>
+                                  <td><span t-esc="o.plot_id.block_id.display_name"/></td>
+                                </tr>
+                                <tr>
+                                   <td><strong>Size</strong></td>
+                                   <td><span t-esc="o.plot_id.size_sq_yards"/> Sq. Yards </td>
+                                </tr>
+                            </table>
+
+                            <hr style="margin:5px 0;"/>
+
+                            <!-- DECLARATION -->
+                            <h4 style="margin:4px 0;">DECLARATION</h4>
+                            <p>
+                                This is to certify that the above mentioned plot has been successfully transferred
+                                in favor of the transferee mentioned above and the transferee is declared as the
+                                lawful allottee subject to society rules and regulations.
+                            </p>
+
+                            <!-- TERMS -->
+                            <h4 style="margin:4px 0;">TERMS &amp; CONDITIONS</h4>
+                            <ul>
+                                <li>All future dues shall be payable by the transferee.</li>
+                                <li>All applicable taxes, bank charges, FED and government levies shall apply.</li>
+                                <li>No construction shall be allowed without society approval.</li>
+                            </ul>
+
+                            <!-- SIGNATURE -->
+                        <div style="margin-top:20px; display:flex; justify-content:space-between; page-break-inside:avoid;">
+                            <div>
+                                __________________________<br/>
+                                <strong>Authorized Signatory</strong>
+                            </div>
+                            <div>
+                                __________________________<br/>
+                                <strong>Transferee Signature</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+    
+
+                    </t>
+                </t>
+            </t>
+        </t>
+
+    </template>
+
+</odoo>

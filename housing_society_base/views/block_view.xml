@@ -1,0 +1,19 @@
+<odoo>
+
+    <record id="view_housing_block_list" model="ir.ui.view">
+        <field name="model">housing.block</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="society_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_housing_block" model="ir.actions.act_window">
+        <field name="name">Blocks</field>
+        <field name="res_model">housing.block</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    
+</odoo>

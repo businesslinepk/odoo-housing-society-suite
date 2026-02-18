@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="ledger_installment_template">
+        <t t-foreach="docs" t-as="o">
+
+            <main class="page">
+
+                <h2 style="text-align:center;">
+                    Ledger & Installment Statement
+                </h2>
+
+                <h3>Ledger</h3>
+
+                <table border="1" width="100%" cellpadding="5">
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Debit</th>
+                        <th>Credit</th>
+                    </tr>
+
+                    <t t-foreach="o.ledger_ids" t-as="l">
+                        <tr>
+                            <td><span t-esc="l.create_date.date()"/></td>
+                            <td><span t-esc="l.description"/></td>
+                            <td><span t-esc="l.debit"/></td>
+                            <td><span t-esc="l.credit"/></td>
+                        </tr>
+                    </t>
+                </table>
+
+                <br/>
+
+                <h3>Installments</h3>
+
+                <table border="1" width="100%" cellpadding="5">
+                    <tr>
+                        <th>No</th>
+                        <th>Due Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+
+                    <t t-foreach="o.installment_ids" t-as="i">
+                        <tr>
+                            <td><span t-esc="i.name"/></td>
+                            <td><span t-esc="i.due_date"/></td>
+                            <td><span t-esc="i.amount"/></td>
+                            <td><span t-esc="i.state"/></td>
+                        </tr>
+                    </t>
+                </table>
+
+            </main>
+
+        </t>
+    </template>
+
+</odoo>

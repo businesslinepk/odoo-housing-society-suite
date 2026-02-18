@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- LIST VIEW -->
+    <record id="view_housing_installment_list" model="ir.ui.view">
+        <field name="name">housing.installment.list</field>
+        <field name="model">housing.installment</field>
+        <field name="arch" type="xml">
+            <list>
+                <!--<field name="installment_no"/> -->
+                <field name="member_id"/> 
+                <field name="sequence"/>
+                <field name="due_date"/>
+                <field name="amount"/>
+                <field name="state"/>
+               <!-- <button name="action_mark_paid"
+                        type="object"
+                        string="Mark Paid"
+                        class="btn-success"
+                        attrs="{'invisible':[('state','=','paid')]}"/> -->
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM VIEW -->
+    <record id="view_housing_installment_form" model="ir.ui.view">
+        <field name="name">housing.installment.form</field>
+        <field name="model">housing.installment</field>
+        <field name="arch" type="xml">
+            <form>
+            <button name="action_create_invoice"
+                type="object"
+                string="Create Invoice"
+                class="btn-primary"/>
+
+           
+
+        <field name="state" widget="statusbar" statusbar_visible="pending,paid" />
+                <sheet>
+                    <group>
+                        <field name="member_id" readonly="1"/> 
+                        <field name="sequence" readonly="1"/>
+                        <field name="due_date"/>
+                        <field name="amount"/>
+                        <field name="state" readonly="1" />
+                    </group>
+
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

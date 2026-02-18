@@ -1,0 +1,25 @@
+<odoo>
+
+    <record id="view_housing_plot_list" model="ir.ui.view">
+        <field name="model">housing.plot</field>
+        <field name="arch" type="xml">
+            <list>
+                
+                <field name="plot_no"/>
+                <field name="plot_type"/>
+                <field name="block_id"/>
+                <field name="street_no"/>
+                <field name="size_sq_yards"/>
+                
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_housing_plot" model="ir.actions.act_window">
+        <field name="name">Plots</field>
+        <field name="res_model">housing.plot</field>
+        <field name="view_mode">list,form</field>
+    </record>
+ 
+</odoo>

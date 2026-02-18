@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="housing_settings_view" model="ir.ui.view">
+        <field name="name">housing.settings.view</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+
+            <!-- ✅ ODOO 18 / 19 / 20 SAFE -->
+            <xpath expr="//form" position="inside">
+
+                <group string="Housing Society Settings" colspan="2">
+                    <field name="enable_residential"/>
+                    <field name="enable_commercial"/>
+                    <field name="enable_towers"/>
+                    <field name="enable_apartments"/>
+                    <field name="enable_shops"/>
+                    <field name="enable_offices"/>
+                    <field name="enable_transfer"/>
+                    <field name="enable_portal"/>
+                </group>
+
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="portal_my_home_ledger" model="ir.ui.view">
+        <field name="name">portal.my.home.ledger</field>
+        <field name="inherit_id" ref="portal.portal_my_home"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//div[contains(@class,'o_portal_docs')]" position="inside">
+                
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

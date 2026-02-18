@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_final_allotment_letter" model="ir.actions.report">
+        <field name="name">Final Allotment Letter</field>
+        <field name="model">housing.member</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">housing_society_base.final_allotment_letter</field>
+        <field name="print_report_name">'Allotment - %s' % (object.membership_no)</field>
+     </record>
+     <report
+        id="action_plot_allotment_letter"
+        model="housing.member"
+        string="Plot Allotment Letter"
+        report_type="qweb-pdf"
+        name="housing_society_base.tmpl_plot_allotment_letter"
+        file="housing_society_base.tmpl_plot_allotment_letter"
+     />
+      <report
+        id="action_plot_allotment_letter"
+        model="housing.member"
+        string="Plot Allotment Letter"
+        report_type="qweb-pdf"
+        name="housing_society_base.tmpl_plot_allotment_letter"
+       file="housing_society_base.tmpl_plot_allotment_letter"
+     />
+
+
+</odoo>

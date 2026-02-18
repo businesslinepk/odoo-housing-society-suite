@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_plot_allotment_letter_form" model="ir.ui.view">
+        <field name="name">plot.allotment.letter.form</field>
+        <field name="model">housing.member</field>
+        <field name="arch" type="xml">
+            <form create="false" edit="false">
+                <sheet>
+
+                    <!-- GLOBAL WRAPPER -->
+                    <div style="font-size:11px; line-height:1.15;">
+
+                        <!-- HEADER -->
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+
+                            <!-- LOGO -->
+                            <div>
+                                <img src="/housing_society_base/static/src/img/logo.png"
+                                     style="height:95px; object-fit:contain;"/>
+                            </div>
+
+                            <!-- DATE -->
+                            <div style="text-align:right; font-size:10.5px;">
+                                <strong>Date:</strong>
+                                <field name="create_date" widget="date" readonly="1"/>
+                            </div>
+
+                        </div>
+
+                        <hr style="margin:5px 0;"/>
+
+                        <!-- TITLE -->
+                        <div style="text-align:center; margin-bottom:6px;">
+                            <h3 style="margin:4px 0;">
+                                 ALLOTMENT OF
+                                <field name="plot_type_label_upper" readonly="1" nolabel="1"/>
+                            </h3>
+                            
+                        </div>
+
+                        <hr style="margin:5px 0;"/>
+
+                        <!-- MEMBER + QR -->
+                        <div style="display:flex; justify-content:space-between;">
+
+                            <!-- MEMBER INFO -->
+                            <div style="width:60%;">
+                                <h4 style="margin:4px 0;">MEMBER INFORMATION</h4>
+                                <table class="table table-sm" style="margin-bottom:4px;">
+                                    <tr>
+                                        <td><strong>Membership No</strong></td>
+                                        <td><field name="membership_no"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Name</strong></td>
+                                        <td><field name="name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>CNIC</strong></td>
+                                        <td><field name="cnic"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Phone</strong></td>
+                                        <td><field name="phone"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Address</strong></td>
+                                        <td><field name="address"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <!-- QR -->
+                            <div style="width:35%; text-align:center;">
+                                <h4 style="margin:4px 0;">QR VERIFICATION</h4>
+                                <field name="qr_image" widget="image"
+                                       style="width:110px; height:110px;"/>
+                                <p style="margin-top:4px; font-size:10px;">
+                                    <strong>Scan to verify membership</strong>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <hr style="margin:5px 0;"/>
+
+                        <!-- PLOT DETAILS -->
+                        <h4 style="margin:4px 0;">PLOT DETAILS</h4>
+                        <table class="table table-sm" style="margin-bottom:4px;">
+                            <tr>
+                                <td><strong>Plot (After Allotment)</strong></td>
+                                <td><field name="plot_id"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Allotted File</strong></td>
+                                <td><field name="file_id"/></td>
+                            </tr>
+                        </table>
+
+                        <hr style="margin:5px 0;"/>
+
+                        <!-- DECLARATION -->
+                        <h4 style="margin:4px 0;">DECLARATION</h4>
+                        <p style="margin:2px 0 4px 0;">
+                            This is to certify that the above mentioned member has successfully completed
+                            all required payments and is hereby allotted the plot mentioned above under
+                            the rules and regulations of Housing Scheme.
+                        </p>
+
+                        <!-- TERMS -->
+                        <div style="page-break-inside:avoid;">
+
+                            <h4 style="margin:4px 0;">TERMS &amp; CONDITIONS</h4>
+                            <p style="margin:2px 0 4px 0;">
+                                This final allotment of plot is issued after successful completion of all
+                                required installments and is subject to the following terms and conditions:
+                            </p>
+
+                            <ul style="margin:0; padding-left:14px;">
+                                <li>The allottee has paid the full and final cost of the plot as per the approved payment schedule.
+                                    This allotment is therefore confirmed subject to compliance with society rules and regulations.</li>
+                                <li>Possession of the plot shall be handed over to the allottee or their authorized nominee
+                                    after verification of records and completion of all formalities prescribed by the society.</li>
+                                <li>The allottee shall construct the building strictly in accordance with the approved building
+                                    plans, society bye-laws, and relevant regulations of competent authorities.</li>
+                                <li>No construction shall be carried out without obtaining prior approval from the society
+                                    and other concerned authorities, where applicable.</li>
+                                <li>The allottee shall be responsible for payment of all applicable charges, including but not
+                                     limited to possession charges, maintenance charges, utility connection charges, or any other
+                                    charges levied by the society or authorities from time to time.</li>
+                                <li>Transfer, sale, or assignment of the plot shall only be allowed after obtaining prior written
+                                    approval from the society and upon payment of applicable transfer fees and dues.</li>
+                                <li>The allottee shall abide by all rules, regulations, and bye-laws of the society as amended
+                                    from time to time. Any violation may result in penalties or cancellation of allotment.</li>
+                                <li>In case of any discrepancy in plot area discovered at the time of possession or demarcation,
+                                    the final area shall be determined as per ground measurement and adjustment in cost, if any,
+                                    shall be made accordingly.</li>
+                                <li>The society reserves the right to make reasonable changes in layout, plot numbering, or location
+                                in the interest of development or as directed by competent authorities.</li>
+                                <li>This allotment shall be governed by the laws, rules, and regulations applicable within the
+                                jurisdiction of the society and relevant authorities.</li>
+                            </ul>
+
+                        </div>
+
+                        <!-- SIGNATURES -->
+                        <div style="margin-top:18px; display:flex; justify-content:space-between; page-break-inside:avoid;">
+                            <div>
+                                __________________________<br/>
+                                <strong>Authorized Signatory</strong>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    <!-- END WRAPPER -->
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

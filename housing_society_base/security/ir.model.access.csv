@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_housing_society,access.housing.society,model_housing_society,,1,1,1,1
+access_housing_block,access.housing.block,model_housing_block,,1,1,1,1
+access_housing_plot,access.housing.plot,model_housing_plot,,1,1,1,1
+access_housing_member,access.housing.member,model_housing_member,,1,1,1,1
+access_housing_nominee,access.housing.nominee,model_housing_nominee,,1,1,1,1
+access_housing_transfer,access.housing.transfer,model_housing_transfer,,1,1,1,1
+access_housing_nominee,housing.nominee,model_housing_nominee,,1,1,1,1
+access_housing_ledger,housing.ledger,model_housing_ledger,,1,1,1,1
+access_housing_installment,housing.installment,model_housing_installment,base.group_user,1,1,1,1
+access_housing_payment_receive_wizard,housing.payment.receive.wizard,model_housing_payment_receive_wizard,base.group_user,1,1,1,0
+access_housing_file_user,housing.file user,model_housing_file,,1,1,1,1
+access_plot_allotment,housing.plot.allotment,model_housing_plot_allotment,,1,1,1,1
+access_housing_transfer_user,housing.transfer.user,model_housing_transfer,base.group_user,1,1,1,1

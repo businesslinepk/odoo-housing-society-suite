@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<template id="final_allotment_letter">
+    <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+           <t t-foreach="docs" t-as="o">
+
+             <main class="page">
+
+             <!-- TITLE -->
+                     <h3 style="text-align:center; margin-bottom:35px; color:#000000;">
+    PROVISIONAL ALLOTMENT OF
+    <strong>
+        <t t-if="o.file_id and o.file_id.file_type == 'residential'">
+            RESIDENTIAL
+        </t>
+        <t t-if="o.file_id and o.file_id.file_type == 'commercial'">
+            COMMERCIAL
+        </t>
+    </strong>
+    FILE
+                   </h3>
+
+
+
+
+
+
+<!-- HEADER BLOCK : MEMBER INFO LEFT | QR RIGHT -->
+<div style="width:100%; margin-bottom:20px; overflow:hidden;">
+
+    <!-- LEFT : MEMBER INFORMATION -->
+    <div style="width:65%; float:left; font-size:12px; line-height:1.8;">
+
+        <div>
+            <strong>Membership No:</strong>
+            <span t-esc="o.membership_no"/>
+        </div>
+
+        <div>
+            <strong>Member Name:</strong>
+            <span t-esc="o.name"/>
+        </div>
+
+        <div>
+            <strong>CNIC:</strong>
+            <span t-esc="o.cnic"/>
+        </div>
+
+        <div>
+            <strong>Phone:</strong>
+            <span t-esc="o.phone"/>
+        </div>
+
+        <div>
+            <strong>Date:</strong>
+            <span t-esc="o.create_date.strftime('%d-%b-%Y')"/>
+        </div>
+
+    </div>
+
+    <!-- RIGHT : QR CODE -->
+    <div style="width:35%; float:right; text-align:right;">
+
+        <div style="font-size:12px; margin-bottom:6px;">
+            <strong>QR Verification</strong>
+        </div>
+
+        <t t-if="o.qr_image">
+            <img t-att-src="'data:image/png;base64,%s' % o.qr_image.decode()"
+                 style="width:110px; height:110px;"/>
+        </t>
+
+    </div>
+
+ </div>
+
+ <!-- CLEAR FLOAT -->
+ <div style="clear:both;"></div>
+
+
+
+
+     <p>
+        Dear Member,
+    </p>
+    <p>
+        The Management of Society is pleased to provisionally
+        allot you a  <strong>
+        <t t-if="o.file_id and o.file_id.file_type == 'residential'">
+            RESIDENTIAL
+        </t>
+        <t t-if="o.file_id and o.file_id.file_type == 'commercial'">
+            COMMERCIAL
+        </t>
+    </strong> File bearing File No.
+        <strong><span t-esc="o.file_id.file_no"/></strong>,
+        measuring <strong><span t-esc="o.file_id.size_sq_yards"/></strong>
+        Square Yards, subject to society rules and payment schedule.
+    </p>
+ 
+ <!-- PAYMENT SUMMARY -->
+ <div style="margin-top:50px;">
+ <h3> Payment Summary</h3>
+
+ <table style="width:100%;" border="5" cellpadding="9"> 
+ <tr>
+    <td>Total Price</td>
+    <td>PKR <span t-esc="o.total_price"/></td>
+ </tr>
+ <tr>
+    <td>Down Payment</td>
+    <td>PKR <span t-esc="o.down_payment"/></td>
+ </tr>
+ <tr>
+    <td>Outstanding Balance</td>
+    <td>PKR <span t-esc="o.outstanding_balance"/></td>
+ </tr>
+ </table> 
+ </div>
+
+
+
+
+
+
+
+
+
+ <!-- INSTALLMENT TABLE -->
+ <div style="page-break-inside: avoid; margin-top:30px;">
+ <t t-if="o.installment_ids">
+ <h3>Installment Schedule</h3>
+
+ <table style="width:100%;" border="1" cellpadding="8">
+ <tr>
+    <th>#</th>
+    <th>Due Date</th>
+    <th>Amount</th>
+    
+ </tr>
+
+ <t t-foreach="o.installment_ids.sorted('sequence')" t-as="inst">
+ <tr>
+    <td t-esc="inst.sequence"/>
+    <td t-esc="inst.due_date"/>
+    <td>PKR <span t-esc="inst.amount"/></td>
+    
+ </tr>
+ </t>
+ </table>
+ </t>
+ </div>
+   
+   
+   
+   
+  
+  
+  
+  
+  
+ <!-- TERMS -->
+ <div style="page-break-before: always;"></div>
+ <!-- TERMS -->
+<div>
+  <h3>Terms and Conditions</h3>
+
+  <p>This provisional allotment is subject to the following terms and conditions:</p>
+
+  <ol>
+    <li>
+      <p>In case of a corner plot, additional charges shall be applicable as per society policy.</p>
+    </li>
+
+    <li>
+      <p>The allottee shall pay the remaining balance of the plot strictly in accordance with the prescribed installment schedule.</p>
+    </li>
+
+    <li>
+      <p>Possession of the plot shall be handed over only after receipt of 100% payment. Final adjustment in plot area, if any,
+      shall be made according to ground situation at the time of possession, and cost shall be adjusted accordingly.</p>
+    </li>
+
+    <li>
+      <p>Any additional charges levied by the society for facilities or amenities such as underground electrification, if applicable,
+      shall be payable by the allottee.</p>
+    </li>
+
+    <li>
+      <p>All payments and installments must be made on time. In case of default or delayed payment, the society or managing committee
+      reserves the right to cancel the allotment as per society bye-laws, without prior notice.</p>
+    </li>
+
+    <li>
+      <p>In case of cancellation of membership or plot, a refund after deduction of 20% of the paid amount shall be admissible
+      within 60 days from the date of cancellation.</p>
+    </li>
+
+    <li>
+      <p>The allottee shall strictly abide by the rules, regulations, and bye-laws of the society enforced from time to time.</p>
+    </li>
+
+    <li>
+      <p>In case of violation of society rules, excessive delay in payments, or non-compliance with terms,
+      the plot allotment shall be liable to cancellation.</p>
+    </li>
+
+    <li>
+      <p>If compulsory installments required for initial allotment are not paid within the prescribed time,
+      the plot number shall not be allocated. Allocation shall only be made after clearance of outstanding dues
+      along with applicable surcharge or revised cost, as determined by the management.</p>
+    </li>
+
+    <li>
+      <p>In case of delayed payments, the allottee shall be liable to pay either an escalation charge of 2% per month
+      for the delayed period or the revised prevailing cost of the plot at the time of payment, whichever is higher.</p>
+    </li>
+
+    <li>
+      <p>Additional cost of the plot, if applicable, shall be charged as per society policy for corner plots,
+      boulevard-facing plots, or park-facing plots.</p>
+    </li>
+    
+    <li>
+      <p>All taxes, bank charges, FED, and any other government fees shall be payable by the allottee.</p>
+    </li>
+   
+  </ol>
+
+  <p>
+    All subsequent dues, installments, possession charges, or escalation charges, if any, shall be payable by the transferee.
+    The society reserves the right to change the plot location or number in the interest of the society or as directed by CDA.
+  </p>
+</div>
+
+<!-- SIGN -->
+<div style="margin-top:100px; text-align:right;">
+  
+  <strong>Chief Executive Officer</strong>
+</div>
+
+
+          </main>
+       </t>
+    </t>
+ </t>
+</template>
+
+ </odoo>

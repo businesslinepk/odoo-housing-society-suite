@@ -1,0 +1,70 @@
+<odoo>
+ <data>
+
+    <!-- ROOT ACTION -->
+    <record id="action_housing_root" model="ir.actions.act_window">
+        <field name="name">Housing Society</field>
+        <field name="res_model">housing.society</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ROOT MENU (THIS MAKES APP VISIBLE) -->
+    <menuitem
+        id="housing_root"
+        name="Housing Society"
+        action="action_housing_root"
+        sequence="10"/>
+
+     <!-- SUB MENUS -->
+     <!-- <menuitem
+        id="housing_society_menu"
+        name="Societies"
+        parent="housing_root"
+        action="action_housing_society"/> --> 
+     <!-- <menuitem
+        id="housing_block_menu"
+        name="Blocks"
+        parent="housing_root"
+        action="action_housing_block"/> -->
+
+        <!-- Memberships -->
+        <menuitem
+       id="housing_member_menu"
+       name="Memberships"
+       parent="housing_root"
+       action="action_housing_member"/> 
+
+       
+
+     <!-- Transfers -->
+      <menuitem
+      id="housing_transfer_menu"
+       name="Transfers"
+       parent="housing_root"
+       action="action_housing_transfer"/>
+  
+       <!-- Ledgers -->
+        <menuitem id="housing_ledger_menu"
+          name="Ledgers"
+          parent="housing_root"
+          action="action_housing_ledger"
+          sequence="60"/>
+
+
+
+        <!-- Installments -->
+          <menuitem id="housing_installment_menu"
+          name="Installments"
+          parent="housing_root"
+          action="action_housing_installment"/>
+ 
+
+            <!-- plot -->
+       <menuitem
+        id="housing_plot_menu"
+        name="Plots"
+        parent="housing_root"
+        action="action_housing_plot"/>
+
+     </data>
+</odoo>

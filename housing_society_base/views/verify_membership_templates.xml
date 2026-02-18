@@ -1,0 +1,67 @@
+<odoo>
+
+    <template id="verify_membership_page">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+
+               <t t-if="member">
+                <h2 style="color:green;"> Membership Verified</h2>
+               </t>
+
+                <table class="table table-bordered mt-4">
+                    <tr>
+                        <th>Membership No</th>
+                        <td><t t-esc="member.membership_no"/></td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td><t t-esc="member.name"/></td>
+                    </tr>
+                    <tr>
+                        <th>CNIC</th>
+                        <td><t t-esc="member.cnic"/></td>
+                    </tr>
+                    <tr>
+                        <th>File</th>
+                        <td><t t-esc="member.file_id.name"/></td>
+                    </tr>
+                    <tr>
+                        <th>Plot</th>
+                        <td>
+                            <t t-if="member.plot_id">
+                                <t t-esc="member.plot_id.name"/>
+                            </t>
+                            <t t-else="">
+                            Invalid Membership
+                            </t>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>
+                            <t t-if="member.plot_allotted">
+                                Plot Allotted
+                            </t>
+                            <t t-else="">
+                                File Active
+                            </t>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </t>
+    </template>
+
+    <template id="verify_not_found">
+        <t t-call="website.layout">
+            <div class="container mt-5 text-center">
+                <h2 class="text-danger">
+                    Invalid Membership 
+                </h2>
+                <p>No record found.</p>
+            </div>
+        </t>
+    </template>
+
+</odoo>

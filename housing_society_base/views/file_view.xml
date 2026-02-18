@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- LIST VIEW -->
+    <record id="view_housing_file_list" model="ir.ui.view">
+        <field name="name">housing.file.list</field>
+        <field name="model">housing.file</field>
+        <field name="arch" type="xml">
+            <list>
+                <!--<field name="name"/> -->
+                <field name="file_no"/>
+                <field name="file_type"/>
+                <field name="size_sq_yards"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM VIEW -->
+    <record id="view_housing_file_form" model="ir.ui.view">
+        <field name="name">housing.file.form</field>
+        <field name="model">housing.file</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="file_no"/>
+                        <field name="file_type"/>
+                        <field name="size_sq_yards"/>
+                        <field name="status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="action_housing_file" model="ir.actions.act_window">
+        <field name="name">Files</field>
+        <field name="res_model">housing.file</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

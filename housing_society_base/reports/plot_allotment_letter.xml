@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <template id="plot_allotment_letter">
+    <t t-call="web.basic_layout">
+      <div class="page">
+
+        <h2 style="text-align:center;">PLOT ALLOTMENT LETTER</h2>
+
+        <p>
+          This is to certify that
+          <strong><t t-esc="o.member_id.name"/></strong>
+          has been allotted Plot No
+          <strong><t t-esc="o.plot_id.name"/></strong>.
+        </p>
+
+        <p>
+          All installments have been fully paid and the plot is officially
+          allotted on <t t-esc="o.allotment_date"/>.
+        </p>
+
+        <br/>
+        <p><strong>Society Management</strong></p>
+
+      </div>
+    </t>
+  </template>
+</odoo>
+
+
+

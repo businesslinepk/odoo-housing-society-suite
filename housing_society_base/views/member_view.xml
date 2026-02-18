@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <!-- LIST VIEW -->
+    <record id="view_housing_member_list" model="ir.ui.view">
+        <field name="name">housing.member.list</field>
+        <field name="model">housing.member</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="membership_no"/>
+                <field name="name"/>
+                <field name="cnic"/>
+                <field name="file_id"/>
+                <field name="plot_id"/>
+        
+                <field name="customer_id"/>
+                <field name="member_image" widget="image" class="oe_avatar"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_payment_receive_wizard" model="ir.actions.act_window">
+        <field name="name">Receive Payment</field>
+        <field name="res_model">housing.payment.receive.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_member_id': active_id}</field>
+    </record>
+
+    <!-- FORM VIEW -->
+    <record id="view_housing_member_form" model="ir.ui.view">
+        <field name="name">housing.member.form</field>
+        <field name="model">housing.member</field>
+        <field name="arch" type="xml">
+            <form>
+
+                <header>
+                     <button name="action_print_allotment_letter"
+                            type="object"
+                            string="Print Allotment Letter"
+                            class="btn-primary"/> 
+                     <button name="action_generate_installments"
+                           type="object"
+                           string="Generate Installments"
+                           class="btn-primary"/>
+                    
+                     <button name="action_open_plot_allotment_letter"
+                            type="object"
+                            string="Plot Allotment Letter"
+                            class="btn-primary"/>
+                     <button name="action_create_downpayment_invoice"
+                            type="object"
+                            string="Create Down Payment Invoice"
+                            class="btn-primary"/>
+  
+                </header>
+
+                <sheet>
+
+                    <group>
+                        <field name="membership_no" readonly="1"/>
+                        <field name="name"/>
+                        <field name="cnic"/>
+                        <field name="phone"/>
+                        <field name="address"/>
+                        <field name="file_id"/>
+                        <field name="plot_id"/>
+                        <field name="member_image" widget="image" class="oe_avatar"/>
+                        <field name="cnic_front_image" widget="image" class="oe_avatar"/>
+                        <field name="cnic_back_image" widget="image" class="oe_avatar"/>
+                        
+
+                    </group>
+
+                    <group string="QR Code">
+                        <field name="qr_image" widget="image" readonly="1"/>
+                    </group>
+               
+                    <notebook>
+
+                        <page string="Nominees">
+                            <field name="nominee_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="cnic"/>
+                                    <field name="relation"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Ledger">
+                            <field name="ledger_ids">
+                                <list>
+                                    <field name="date"/>
+                                    <field name="description"/>
+                                    <field name="debit"/>
+                                    <field name="credit"/>
+                                    <field name="balance"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Installments">
+                            <field name="installment_ids">
+                                <list>
+                                    <field name="installment_no"/>
+                                    <field name="sequence"/>
+                                    <field name="due_date"/>
+                                    <field name="amount"/>
+                                    <field name="state"/>
+                                    
+                                </list>
+                            </field>
+                        </page>
+
+
+                        <page string="Finance">
+                          <group>
+                            <field name="total_price"/>
+                            <field name="down_payment"/>
+                            <field name="outstanding_balance" readonly="1"/>
+                          </group>
+
+                          <group>
+                            <!--<field name="installment_months"/>-->
+                            <field name="first_installment_date"/>
+                          </group> 
+                        </page>
+                        
+
+                        <page string="Payment Plan">
+                            <field name="show_years" invisible="1"/>
+                            <group>
+                                <field name="payment_plan"/>
+                                <field name="number_of_years"
+                                       invisible="not show_years"/>
+                            </group>
+
+                            <!--<group string="Tax">
+                                <field name="is_filer"/>
+                                <field name="tax_percentage" readonly="1"/>
+                            </group> -->
+                        </page>
+        
+                         
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
+
+
+
+
+        <!-- ========================= -->
+        <!-- ACTION -->
+        <!-- ========================= -->
+      <!-- =========================  <record id="action_housing_member" model="ir.actions.act_window">
+            <field name="name">Memberships</field>
+            <field name="res_model">housing.member</field>
+            <field name="view_mode">list,form</field>
+        </record> --> 
+
+  
