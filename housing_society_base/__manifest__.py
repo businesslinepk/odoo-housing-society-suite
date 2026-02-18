@@ -1,6 +1,6 @@
 {
     "name": "Housing Society Base",
-    "version": "19.0.1.0.0",
+    "version": "18.0.1.0.0",
     "summary": "Housing Society / Real Estate Base Module",
     "category": "Real Estate",
     "author": "Business Lines Private Limited",
@@ -52,3 +52,4 @@
     'currency': "USD",
     'images': ['static/description/icon.png'],
 }
+
